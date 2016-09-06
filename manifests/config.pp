@@ -12,7 +12,8 @@ class confluent_kafka::config {
   $tmp_config = {
     'zookeeper.connect' => $::confluent_kafka::zk_string,
     'broker.id'         => $::confluent_kafka::brokers[$::fqdn],
-    'log.dirs'          => join($::confluent_kafka::log_dirs, ',')
+    'log.dirs'          => join($::confluent_kafka::log_dirs, ','),
+    'inter.broker.protocol.version' => $::confluent_kafka::version,
   }
 
   $kafka_config = merge($::confluent_kafka::params::kafka_config_defaults, $::confluent_kafka::kafka_config, $tmp_config)
