@@ -25,15 +25,16 @@ class confluent_kafka::install {
             'src'           => false,
           },
         }
+
+        exec { 'apt-get update':
+          command => "/usr/bin/apt-get update",
+          alias   => "apt-update",
+        }
+
       }
     }
   }
 
-
-  exec { 'apt-get update':
-    command => "/usr/bin/apt-get update",
-    alias   => "apt-update",
-  }
 
   if $::confluent_kafka::install_java {
     class { 'java':
@@ -42,7 +43,6 @@ class confluent_kafka::install {
   }
 
   package { "${::confluent_kafka::package_name}-${::confluent_kafka::scala_version}":
-    require => Exec[apt-update],
     ensure => $::confluent_kafka::version,
   }
 
