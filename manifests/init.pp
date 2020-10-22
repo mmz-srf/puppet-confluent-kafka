@@ -82,8 +82,8 @@ class confluent_kafka (
   $jvm_perf_opts     = $::confluent_kafka::params::jvm_perf_opts,
   $jmx_opts          = $::confluent_kafka::params::jmx_opts,
   $log4j_opts        = $::confluent_kafka::params::log4j_opts,
-  $platform_version  = $::confluent_kafka::params::platform_version,
-  $platform_arch     = $::confluent_kafka::params::platform_arch,
+  $platform_version  = $::confluent_kafka::params::confluent_platform_version,
+  $platform_arch     = $::confluent_kafka::params::confluent_platform_arch,
   # logging levels
   $root_loglevel           = $::confluent_kafka::params::root_loglevel,
   $appender_loglevel       = $::confluent_kafka::params::appender_loglevel,
