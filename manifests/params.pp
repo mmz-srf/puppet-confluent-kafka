@@ -17,7 +17,7 @@ class confluent_kafka::params {
   $manage_repo       = true
   $zk_hosts          = ['localhost:2181']
   $zk_chroot         = ''
-  $max_nofiles       = '65535'
+  $max_nofiles       = '102400'
   $log_dirs          = ['/tmp/kafka-logs']
   $app_log_dir       = '/var/log/kafka'
   $jvm_heap_mem      = '-Xmx1G -Xms1G'
